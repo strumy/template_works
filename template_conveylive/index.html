@@ -10,16 +10,51 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet" id="themeStyle"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <style>
+            :root {
+            }
+        </style>
+        <script>
+            $( document ).ready(function() {
+                var themeStyle = $('#themeStyle');
+                let themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css";
+                $('#theme').change(function (e) {
+                    if($('#theme').val() === "light_theme") {
+                        themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css"
+                        themeStyle.prop("href", themeState);
+                    }
+                    else if ($('#theme').val() === "dark_theme"){
+                        themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.dark.min.css"
+                        themeStyle.prop("href", themeState);
+                    }
+                    else if ($('#theme').val() === "blue_theme"){
+                        themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.dark.min.css"
+                        themeStyle.prop("href", themeState);
+                    }
+                    else {
+                        themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css"
+                        themeStyle.prop("href", themeState);
+                    }
+                });
+            });
+        </script>
     </head>
     <body>
-        <!-- Page Content-->
+    <!-- Page Content-->
         <div class="container px-4 px-lg-0">
             <!-- Heading Row-->
             <div class="row gx-4 gx-lg-5 align-items-center">
-
                 <div class="col-lg-8 mb-5">
                     <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <select class="form-select" aria-label="Select Theme" id="theme">
+                                <option selected value="light_theme">Light</option>
+                                <option value="dark_theme">Dark</option>
+                                <option value="blue_theme">Blue</option>
+                            </select>
+                        </li>
                         <!-- Icons -->
                         <li class="nav-item">
                             <a class="nav-link" href="#">
@@ -38,8 +73,8 @@
                         </li>
                     </ul>
                     <!-- Call to Action-->
-                    <div class="card bg-white my-5 py-4 text-center border-0">
-                        <h1 class="font-weight-light">Conveylive</h1>
+                    <div class="card my-2 py-1 text-center border-0 bg-body-tertiary">
+                        <h1 class="display-3">Conveylive</h1>
                     </div>
                     <!-- Responsive navbar-->
                     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -51,13 +86,13 @@
                             </button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav me-auto mb-0 mb-lg-0">
-                                    <li class="nav-item m-lg-2">
+                                    <li class="nav-item m-lg-1">
                                         <a class="navbar-brand active px-0" aria-current="page" href="#">Home</a>
                                     </li>
-                                    <li class="nav-item m-lg-2">
+                                    <li class="nav-item m-lg-1">
                                         <a class="navbar-brand" href="#">Link</a>
                                     </li>
-                                    <li class="nav-item dropdown m-lg-2">
+                                    <li class="nav-item dropdown m-lg-1">
                                         <a class="navbar-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                            aria-expanded="false">
                                             Dropdown
@@ -71,9 +106,6 @@
                                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                                         </ul>
                                     </li>
-                                    <li class="nav-item m-lg-2">
-                                        <a class="navbar-brand disabled" aria-disabled="true">Disabled</a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -85,8 +117,8 @@
                         <!-- Post meta content-->
                         <div class="text-muted fst-italic mb-2">Posted on August 1, 2024 by Tasneem</div>
                         <!-- Post categories-->
-                        <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                        <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                        <a class="badge bg-secondary text-decoration-none" href="#!">Web Design</a>
+                        <a class="badge bg-secondary text-decoration-none" href="#!">Freebies</a>
                     </header>
                     <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it
                         makes a great use of the standard Bootstrap core components. Feel free to use this template for any
@@ -160,14 +192,17 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/600x2400/dee2e6/6c757d.jpg" alt="...">
+                    <div class="d-flex align-items-start">
+                        <img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/600x2400/dee2e6/6c757d.jpg" alt="...">
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; <a
-                    href="#!">Conveylive</a> 2024 | <a href="#!">Contact</a> | <a href="#!">Impressum</a></p></div>
+                    href="#!">Conveylive</a> 2024 | <a href="#!">Contact</a> | <a href="#!">Impressum</a></p>
+            </div>
         </footer>
         <!-- MDB -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
