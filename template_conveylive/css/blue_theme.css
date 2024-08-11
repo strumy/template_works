@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/*!
+* Blue Theme
+* Copyright 2024
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-small-business/blob/master/LICENSE)
+*/
+
+#theme {
+    background: #86b7fe;
+    color: #fff3cd;
+}
+
+.blue-bg{
+    background: #055160;
+}
+
+.card {
+    background: #74C0FC;
+    color: #000000;
+}
+
+.text-muted{
+    color: #fff3cd !important;
+}

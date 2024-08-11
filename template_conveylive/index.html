@@ -11,6 +11,7 @@
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet" id="themeStyle"/>
+        <link href="css/blue_theme.css" rel="stylesheet" id="blue_theme" disabled/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <style>
             :root {
@@ -19,29 +20,42 @@
         <script>
             $( document ).ready(function() {
                 var themeStyle = $('#themeStyle');
+                var extra_theme = $('#blue_theme');
+                extra_theme.attr('disabled', 'disabled');
                 let themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css";
+
                 $('#theme').change(function (e) {
                     if($('#theme').val() === "light_theme") {
                         themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css"
                         themeStyle.prop("href", themeState);
+                        extra_theme.attr('disabled', 'disabled');
                     }
                     else if ($('#theme').val() === "dark_theme"){
                         themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.dark.min.css"
                         themeStyle.prop("href", themeState);
+                        extra_theme.attr('disabled', 'disabled');
                     }
                     else if ($('#theme').val() === "blue_theme"){
                         themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.dark.min.css"
                         themeStyle.prop("href", themeState);
+
+                        if(extra_theme.attr('disabled') === 'disabled') {
+                            extra_theme.removeAttr('disabled');
+                        }
+                        else {
+                            extra_theme.attr('disabled', 'disabled');
+                        }
                     }
                     else {
                         themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css"
                         themeStyle.prop("href", themeState);
+                        extra_theme.attr('disabled', 'disabled');
                     }
                 });
             });
         </script>
     </head>
-    <body>
+    <body class="blue-bg">
     <!-- Page Content-->
         <div class="container px-4 px-lg-0">
             <!-- Heading Row-->
@@ -77,7 +91,7 @@
                         <h1 class="display-3">Conveylive</h1>
                     </div>
                     <!-- Responsive navbar-->
-                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <nav class="navbar navbar-expand-lg">
                         <div class="container-fluid px-0">
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
