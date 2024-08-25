@@ -7,14 +7,20 @@
 
 
 .theme-bg{
-    background: #055160;
+    background-image: linear-gradient(180deg, #055160, #74C0FC);
 }
 
 .card {
     background: #74C0FC;
+    background: #c1d6cc;
     color: #000000;
 }
 
 .text-muted{
-    color: #fff3cd !important;
+    color: #323b2f !important;
 }
+
+.header .text-muted {
+    color: #adcea2 !important;
+}
+
