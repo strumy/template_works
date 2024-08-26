@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <title>New Conveylive Template</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet" id="themeStyle"/>
+        <link href="css/blue_theme.css" rel="stylesheet" id="blue_theme" disabled/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <style>
+            :root {
+            }
+        </style>
+        <script>
+            $( document ).ready(function() {
+                var themeStyle = $('#themeStyle');
+                var extra_theme = $('#blue_theme');
+                var theme_class_card = $('.card');
+                var theme_class_navbar = $('.navbar');
+                theme_class_card.attr('data-mdb-theme', 'light');
+                theme_class_navbar.attr('data-mdb-theme', 'light');
+                extra_theme.attr('disabled', 'disabled');
+                let themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css";
+
+                $('#theme').change(function (e) {
+                    if($('#theme').val() === "light_theme") {
+                        themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css"
+                        themeStyle.prop("href", themeState);
+                        extra_theme.attr('disabled', 'disabled');
+                        theme_class_card.attr('data-mdb-theme', 'light');
+                        theme_class_navbar.attr('data-mdb-theme', 'light');
+                    }
+                    else if ($('#theme').val() === "dark_theme"){
+                        themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.dark.min.css"
+                        themeStyle.prop("href", themeState);
+                        extra_theme.attr('disabled', 'disabled');
+                        theme_class_card.attr('data-mdb-theme', 'dark');
+                        theme_class_navbar.attr('data-mdb-theme', 'dark');
+
+                    }
+                    else if ($('#theme').val() === "blue_theme"){
+                        themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.dark.min.css"
+                        themeStyle.prop("href", themeState);
+
+                        if(extra_theme.attr('disabled') === 'disabled') {
+                            extra_theme.removeAttr('disabled');
+                        }
+                        else {
+                            extra_theme.attr('disabled', 'disabled');
+                        }
+                        theme_class_card.attr('data-mdb-theme', 'dark');
+                        theme_class_navbar.attr('data-mdb-theme', 'dark');
+                    }
+                    else {
+                        themeState = "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css"
+                        themeStyle.prop("href", themeState);
+                        extra_theme.attr('disabled', 'disabled');
+                        theme_class_card.attr('data-mdb-theme', 'light');
+                        theme_class_navbar.attr('data-mdb-theme', 'light');
+                    }
+                });
+            });
+
+        </script>
+    </head>
+    <body class="theme-bg">
+    <!-- Page Content-->
+        <div class="container px-lg-0">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 ">
+                <div class="col-lg-8">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <select class="form-select" aria-label="Select Theme" id="theme">
+                                <option selected value="light_theme">Light</option>
+                                <option value="dark_theme">Dark</option>
+                                <option value="blue_theme">Blue</option>
+                            </select>
+                        </li>
+                        <!-- Icons -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa-brands fa-facebook fa-xl" style="color: #74C0FC;"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa-brands fa-instagram fa-xl" style="color: #63E6BE;"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa-solid fa-language fa-xl" style="color: #FFD43B;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Call to Action-->
+                    <div class="title my-2 py-1 text-center border-0">
+                        <h1 class="display-3">Conveylive</h1>
+                    </div>
+                    <!-- Responsive navbar-->
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Container wrapper -->
+                        <div class="container-fluid">
+                            <!-- Toggle button -->
+                            <button
+                                    data-mdb-collapse-init
+                                    class="navbar-toggler"
+                                    type="button"
+                                    data-mdb-target="#navbarLeftAlignExample"
+                                    aria-controls="navbarLeftAlignExample"
+                                    aria-expanded="false"
+                                    aria-label="Toggle navigation"
+                            >
+                                <i class="fas fa-bars"></i>
+                            </button>
+
+                            <!-- Collapsible wrapper -->
+                            <div class="collapse navbar-collapse" id="navbarLeftAlign1">
+                                <!-- Left links -->
+                                <ul class="navbar-nav me-auto mb-0 mb-lg-0">
+                                    <li class="nav-item m-lg-1">
+                                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    </li>
+                                    <li class="nav-item m-lg-1">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <!-- Navbar dropdown -->
+                                    <li class="nav-item dropdown m-lg-1">
+                                        <a
+                                                data-mdb-dropdown-init
+                                                class="nav-link dropdown-toggle"
+                                                href="#"
+                                                id="navbarDropdown"
+                                                role="button"
+                                                aria-expanded="false"
+                                        >
+                                            Dropdown
+                                        </a>
+                                        <!-- Dropdown menu -->
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li>
+                                                <a class="dropdown-item" href="#">Action</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                            </li>
+                                            <li><hr class="dropdown-divider" /></li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <!-- Left links -->
+                            </div>
+                            <!-- Collapsible wrapper -->
+                        </div>
+                        <!-- Container wrapper -->
+                    </nav>
+                    <hr class="hr hr-blurry m-0 mb-2" />
+                    <!-- BreadCrumb-->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Library</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Data</li>
+                        </ol>
+                    </nav>
+                    <!-- BreadCrumb-->
+                    <header class="mb-4 header">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">Welcome!</h1>
+                        <!-- Post meta content-->
+                        <div class="text-muted fst-italic mb-2">Posted on August 1, 2024 by Tasneem</div>
+                        <!-- Post categories-->
+                        <a class="badge bg-secondary text-decoration-none" href="#!">Web Design</a>
+                        <a class="badge bg-secondary text-decoration-none" href="#!">Freebies</a>
+                    </header>
+                    <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it
+                        makes a great use of the standard Bootstrap core components. Feel free to use this template for any
+                        project you want!</p>
+                    <a class="btn btn-info btn-rounded" data-mdb-ripple-init  data-mdb-ripple-color="dark" href="#!">Call to Action!</a>
+
+                    <div class="card mb-4 mt-4">
+                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..."></a>
+                        <div class="card-body">
+                            <div class="small text-muted">January 1, 2024</div>
+                            <h2 class="card-title">Featured Post Title</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid
+                                atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero
+                                voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <a class="btn btn-info btn-rounded" data-mdb-ripple-init href="#!">Read more →</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <!-- Blog post-->
+                            <div class="card mb-4">
+                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg"
+                                                  alt="..."></a>
+                                <div class="card-body">
+                                    <div class="small text-muted">January 1, 2024</div>
+                                    <h2 class="card-title h4">Post Title</h2>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
+                                        aliquid atque, nulla.</p>
+                                    <a class="btn btn-info btn-rounded" data-mdb-ripple-init href="#!">Read more →</a>
+                                </div>
+                            </div>
+                            <!-- Blog post-->
+                            <div class="card mb-4">
+                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg"
+                                                  alt="..."></a>
+                                <div class="card-body">
+                                    <div class="small text-muted">January 1, 2024</div>
+                                    <h2 class="card-title h4">Post Title</h2>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
+                                        aliquid atque, nulla.</p>
+                                    <a class="btn btn-info btn-rounded" data-mdb-ripple-init href="#!">Read more →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- Blog post-->
+                            <div class="card mb-4">
+                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg"
+                                                  alt="..."></a>
+                                <div class="card-body">
+                                    <div class="small text-muted">January 1, 2024</div>
+                                    <h2 class="card-title h4">Post Title</h2>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
+                                        aliquid atque, nulla.</p>
+                                    <a class="btn btn-info btn-rounded" data-mdb-ripple-init href="#!">Read more →</a>
+                                </div>
+                            </div>
+                            <!-- Blog post-->
+                            <div class="card mb-4">
+                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg"
+                                                  alt="..."></a>
+                                <div class="card-body">
+                                    <div class="small text-muted">January 1, 2024</div>
+                                    <h2 class="card-title h4">Post Title</h2>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
+                                        aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
+                                    <a class="btn btn-info btn-rounded" data-mdb-ripple-init href="#!">Read more →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 align-self-start">
+                    <div class="d-flex" >
+                        <img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/600x2400/dee2e6/6c757d.jpg" alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; <a
+                    href="#!">Conveylive</a> 2024 | <a href="#!">Contact</a> | <a href="#!">Impressum</a></p>
+            </div>
+        </footer>
+        <!-- MDB -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
+    </body>
+</html>
