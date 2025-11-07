@@ -14,6 +14,15 @@
         <link href="css/blue_theme.css" rel="stylesheet" id="blue_theme" disabled/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <style>
+            .hidden{
+                visibility: hidden;
+            }
+
+            .sticky{
+                position: fixed;
+                top: 0;
+            }
+
             :root {
             }
         </style>
@@ -65,7 +74,51 @@
                         theme_class_navbar.attr('data-mdb-theme', 'light');
                     }
                 });
+
+                const navbar1 = document.querySelector("#nav1");
+                const navbar2 = document.querySelector("#nav2");
+                const navbars = document.querySelector("nav")
+
+                // everytime the user scrolls, the window checks if the navbar1    // exists - aka render is complete
+                window.onscroll = function () {
+                    if (navbar1) {
+                        renderIndexHTMLNav()
+                    } else {
+                        renderStickyNavBar(navbar2)
+                    }
+                };
+
+                function renderStickyNavBar(navbar2, navbar1){
+                    if (window.offset >= navbars.offsetTop) {
+                        navbar2.classList.add("sticky");
+                        navbar1.classList.add("sticky");
+                    } else {
+                        navbar2.classList.remove("sticky");
+                        navbar1.classList.remove("sticky");
+                    }
+                }
+
+                function renderIndexHTMLNav() {
+                    renderStickyNavBar(navbar2, navbar1);
+
+                    var mainbottom = $("#aboutpage-1").offset().top + $("#aboutpage-1").height();
+                    $(window).on('scroll', function () {
+
+                        // we round here to reduce a little workload
+                        var stop = Math.round($(window).scrollTop());
+
+                        if (stop > mainbottom) {
+                            navbar1.classList.add("hidden");
+                            navbar2.classList.remove("hidden");
+                        } else {
+                            navbar2.classList.add("hidden");
+                            navbar1.classList.remove("hidden");
+                        }
+
+                    });
+                }
             });
+
         </script>
     </head>
     <body class="theme-bg">
@@ -98,13 +151,25 @@
                                 <i class="fa-solid fa-language fa-xl" style="color: #FFD43B;"></i>
                             </a>
                         </li>
+                        <form class="d-flex input-group w-auto">
+                            <input
+                                    type="search"
+                                    class="form-control rounded"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                    aria-describedby="search-addon"
+                            />
+                            <span class="input-group-text border-0" id="search-addon">
+        <i class="fas fa-search"></i>
+      </span>
+                        </form>
                     </ul>
                     <!-- Call to Action-->
                     <div class="title my-2 py-1 text-center border-0">
                         <h1 class="display-3">Conveylive</h1>
                     </div>
                     <!-- Responsive navbar-->
-                    <nav class="navbar navbar-expand-lg">
+                    <nav class="navbar navbar-expand-lg" id="nav1">
                         <!-- Container wrapper -->
                         <div class="container-fluid">
                             <!-- Toggle button -->
@@ -121,7 +186,7 @@
                             </button>
 
                             <!-- Collapsible wrapper -->
-                            <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+                            <div class="collapse navbar-collapse" id="navbarLeftAlign1">
                                 <!-- Left links -->
                                 <ul class="navbar-nav me-auto mb-0 mb-lg-0">
                                     <li class="nav-item m-lg-1">
@@ -163,7 +228,156 @@
                         </div>
                         <!-- Container wrapper -->
                     </nav>
+
+                    <nav class="navbar navbar-expand-lg bg-body hidden" id="nav2">
+                        <!-- Container wrapper -->
+                        <div class="container-fluid">
+                            <!-- Toggle button -->
+                            <button
+                                    data-mdb-collapse-init
+                                    class="navbar-toggler"
+                                    type="button"
+                                    data-mdb-target="#navbarLeftAlignExample"
+                                    aria-controls="navbarLeftAlignExample"
+                                    aria-expanded="false"
+                                    aria-label="Toggle navigation"
+                            >
+                                <i class="fas fa-bars"></i>
+                            </button>
+
+                            <!-- Collapsible wrapper -->
+                            <div class="collapse navbar-collapse" id="navbarLeftAlign2">
+                                <!-- Navbar brand -->
+                                <a class="navbar-brand nav-link p-0 px-2" id="logo" target="_blank" href="/">
+                                    <img
+                                            alt="articulatedlogic.com abdullah al zakir hossain"
+                                            src="http://articulatedlogic.com/static/images/alogo.eb1f89b7cd86.png"
+                                            style="width: 31px" class="p-0 mx-1 rounded-2"
+                                            loading="lazy"
+                                    /> Conveylive
+                                </a>
+                                <!-- Left links -->
+                                <ul class="navbar-nav me-auto mb-0 mb-lg-0">
+                                    <li class="nav-item m-lg-1">
+                                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    </li>
+                                    <li class="nav-item m-lg-1">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <!-- Navbar dropdown -->
+                                    <li class="nav-item dropdown m-lg-1">
+                                        <a
+                                                data-mdb-dropdown-init
+                                                class="nav-link dropdown-toggle"
+                                                href="#"
+                                                id="navbarDropdown"
+                                                role="button"
+                                                aria-expanded="false"
+                                        >
+                                            Dropdown
+                                        </a>
+                                        <!-- Dropdown menu -->
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li>
+                                                <a class="dropdown-item" href="#">Action</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                            </li>
+                                            <li><hr class="dropdown-divider" /></li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <!-- Left links -->
+                                <!-- Right elements -->
+                                <div class="d-flex align-items-center">
+                                    <!-- Icon -->
+                                    <a class="text-reset me-3" href="#">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </a>
+
+                                    <!-- Notifications -->
+                                    <div class="dropdown">
+                                        <a
+                                                data-mdb-dropdown-init
+                                                class="text-reset me-3 dropdown-toggle hidden-arrow"
+                                                href="#"
+                                                id="navbarDropdownMenuLink"
+                                                role="button"
+                                                aria-expanded="false"
+                                        >
+                                            <i class="fas fa-bell"></i>
+                                            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                                        </a>
+                                        <ul
+                                                class="dropdown-menu dropdown-menu-end"
+                                                aria-labelledby="navbarDropdownMenuLink"
+                                        >
+                                            <li>
+                                                <a class="dropdown-item" href="#">Some news</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Another news</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- Avatar -->
+                                    <div class="dropdown">
+                                        <a
+                                                data-mdb-dropdown-init
+                                                class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                                                href="#"
+                                                id="navbarDropdownMenuAvatar"
+                                                role="button"
+                                                aria-expanded="false"
+                                        >
+                                            <img
+                                                    src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                                                    class="rounded-circle"
+                                                    height="25"
+                                                    alt="Black and White Portrait of a Man"
+                                                    loading="lazy"
+                                            />
+                                        </a>
+                                        <ul
+                                                class="dropdown-menu dropdown-menu-end"
+                                                aria-labelledby="navbarDropdownMenuAvatar"
+                                        >
+                                            <li>
+                                                <a class="dropdown-item" href="#">My profile</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Settings</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Logout</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                            </div>
+                            <!-- Collapsible wrapper -->
+                        </div>
+                        <!-- Container wrapper -->
+                    </nav>
+
+
                     <hr class="hr hr-blurry m-0 mb-2" />
+                    <!-- BreadCrumb-->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Library</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Data</li>
+                        </ol>
+                    </nav>
+                    <!-- BreadCrumb-->
                     <header class="mb-4 header">
                         <!-- Post title-->
                         <h1 class="fw-bolder mb-1">Welcome!</h1>

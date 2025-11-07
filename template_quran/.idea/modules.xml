@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/template_works.iml" filepath="$PROJECT_DIR$/.idea/template_works.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/quran-template-bangla.iml" filepath="$PROJECT_DIR$/.idea/quran-template-bangla.iml" />
     </modules>
   </component>
 </project>
